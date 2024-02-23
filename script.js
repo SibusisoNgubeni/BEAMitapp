@@ -1,70 +1,32 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import {
-  getDatabase,
-  ref,
-  push,
-} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 
-const appSettings = {
-  databaseURL:
-    "https://my-personal-app-c744c-default-rtdb.europe-west1.firebasedatabase.app/",
+const firebaseConfig = {
+  apiKey: "AIzaSyD3dT01cNcL_1i4veKAo-WfleFMQCCR-ew",
+  authDomain: "beamit-8f975.firebaseapp.com",
+  projectId: "beamit-8f975",
+  storageBucket: "beamit-8f975.appspot.com",
+  messagingSenderId: "44957593769",
+  appId: "1:44957593769:web:0cdc9a7079ef83dcc379b8",
 };
 
-const app = initializeApp(appSettings);
-const database = getDatabase(app);
-const login = ref(database, "login details");
+const app = initializeApp(firebaseConfig);
+const provider = new GoogleAuthProvider();
 
-const inputFieldEl = document.getElementById("inputField");
-const LoginButton = document.getElementById("LogIn-button");
-const LoginDetails = document.getElementById("inputValue");
+const auth = getAuth();
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+  })
 
-LoginButtonEl.addEventListener("click", function () {
-  let inputValue = inputFieldEl.value;
-
-  push(LoginDetails);
-
-  clearInputFieldEl();
-});
-
-onValue(shoppingListInDB, function (snapshot) {
-  if (snapshot.exists()) {
-    let itemsArray = Object.entries(snapshot.val());
-
-    clearShoppingListEl();
-
-    for (let i = 0; i < itemsArray.length; i++) {
-      let currentItem = itemsArray[i];
-      let currentItemID = currentItem[0];
-      let currentItemValue = currentItem[1];
-
-      appendItemToShoppingListEl(currentItem);
-    }
-  } else {
-    shoppingListEl.innerHTML = "No items here... yet";
-  }
-});
-
-function clearShoppingListEl() {
-  shoppingListEl.innerHTML = "";
-}
-
-function clearInputFieldEl() {
-  inputFieldEl.value = "";
-}
-
-function appendItemToShoppingListEl(item) {
-  let itemID = item[0];
-  let itemValue = item[1];
-
-  let newEl = document.createElement("li");
-
-  newEl.textContent = itemValue;
-
-  newEl.addEventListener("click", function () {
-    let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`);
-
-    remove(exactLocationOfItemInDB);
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
   });
 
-  shoppingListEl.append(newEl);
-}
+const auth = getAuth();
+signOut(auth)
+  .then(() => {})
+  .catch((error) => {});
