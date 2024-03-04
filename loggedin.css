@@ -5,6 +5,7 @@ body {
   background-color: #878e9b;
   color: #000000;
   user-select: none;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .nav-bar {
@@ -12,8 +13,107 @@ body {
   background-color: white;
 }
 
+.profile {
+  display: flex;
+  flex: 2;
+  background-color: rgb(255, 254, 253);
+  border-radius: 10px;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.settings {
+  margin-right: 40px;
+}
+
+.h-8 {
+  max-width: 100%;
+  max-height: auto;
+}
+
+.settings-svg {
+  width: 50px;
+  height: 50px;
+}
+
+.tools {
+  grid-column: 1 / -10;
+}
+
+.nav-items {
+  display: flex;
+  flex: 4;
+  margin-top: auto;
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
+
+.home {
+  font-size: 20px;
+  margin-left: 50px;
+}
+.home:hover {
+  color: rgb(239, 86, 31);
+}
+
+.portals {
+  margin-right: 50px;
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+.portals:hover {
+  color: rgb(239, 86, 31);
+}
+
+.market {
+  margin-right: 50px;
+  font-size: 20px;
+}
+
+.market:hover {
+  color: rgb(239, 86, 31);
+}
+.custom-btn {
+  margin-top: 30px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 10px;
+  color: rgb(72, 98, 98);
+}
+.log-out-btn {
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background-color: #878e9b;
+}
+input {
+  width: 200px;
+  height: 30px;
+  background-color: #e4e6ea;
+  border-radius: 10px;
+}
+
 .links {
-  position: absolute;
-  background-color: antiquewhite;
-  margin-top: 100px;
+  display: flex;
+  padding: 10px;
+  margin: 20px;
+}
+.content {
+  display: flex;
+  flex: 1;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+}
+.brd {
+  width: 1100px;
+  height: 400px;
 }
