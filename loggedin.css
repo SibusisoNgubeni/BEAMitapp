@@ -153,6 +153,9 @@ input {
   border: none;
   background-color: rgb(220, 100, 100);
 }
+.share-btn{
+  background-color: chocolate;
+}
 
 .svg {
   margin-left: 800px;
